@@ -153,7 +153,7 @@ async function callFail(context, plugins, err) {
   }
 }
 
-module.exports = async (opts = {}, {cwd = process.CWD || process.cwd(), env = process.env, stdout, stderr} = {}) => {
+module.exports = async (opts = {}, {cwd = process.env.CWD || process.cwd(), env = process.env, stdout, stderr} = {}) => {
   const {unhook} = hookStd(
     {silent: false, streams: [process.stdout, process.stderr, stdout, stderr].filter(Boolean)},
     hideSensitive(env)
